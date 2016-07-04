@@ -7,7 +7,7 @@ If you want to work on virtualenv then run following commands in shell:
 
 
 In order to run the app you first need to install needed modules (Django).
-> pip install requirements.txt
+> pip install -r requirements.txt
 
 Now go to the main project directory (the one containing file 'manage.py') and run in shell:
 > python manage.py runserver 
