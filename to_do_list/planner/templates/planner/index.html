@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index | Planner</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="main-cont">
+    <a href={% url 'planner:day_new' %}>
+        <button type="button" class="save btn btn-primary ">Plan a new day</button>
+    </a>
+    {% if planned_days_list %}
+        <ul>
+            {% for day in planned_days_list %}
+                <li><a href="{% url 'planner:day_view' day.date %}">{{ day }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No days planned yet.</p>
+    {% endif %}
+
+</div>
+</body>
+</html>

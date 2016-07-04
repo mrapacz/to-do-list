@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New day</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="main-cont">
+
+    <p>
+        <h2>{{ current_event }}</h2>
+        <h3>{{ current_event.description }}</h3>
+    </p>
+    <a href="{% url 'planner:event_edit' current_event.day.date current_event.id %}">
+        <button type="button" class="save btn btn-primary">Edit</button>
+    </a>
+    <a href="{% url 'planner:event_delete' current_event.day.date current_event.id %}">
+        <button type="button" class="save btn btn-danger">Delete</button>
+    </a>
+    <a href="{% url 'planner:day_view' current_event.day.date %}">
+        <button type="button" class="save btn btn-default">Go back</button>
+    </a>
+</div>
+</body>
+</html>

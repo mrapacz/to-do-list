@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day {{ day_date }}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="main-cont">
+    {% block content %}
+        <h2>Events</h2>
+        {% if not events_of_the_chosen_day_list %} <p>There are no events planned for this day.</p> {% endif %}
+        <ul>
+            {% for event in events_of_the_chosen_day_list %}
+                <li><a href="{% url 'planner:event_details' event.day.date event.id %}">{{ event }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <a href={% url 'planner:event_new' day_date %}>
+            <button type="button" class="save btn btn-success"> Add a new event</button>
+        </a>
+        <a href={% url 'planner:day_delete' day_date %}>
+            <button type="button" class="save btn btn-danger"> Delete the whole day</button>
+        </a>
+        <a href={% url 'planner:index' %}>
+            <button type="button" class="save btn btn-default"> Go back to the main page</button>
+        </a>
+    {% endblock %}
+</div>
+</body>
+</html>

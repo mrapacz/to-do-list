@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New event form</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+
+</head>
+<body>
+<div class="main-cont">
+    {% block content %}
+        <p>Enter details concerning the event in the form below:</p>
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-success">Submit the event</button>
+            <a href="{% url 'planner:day_view' day_date %}">
+                <button type="button" class="save btn btn-default">Go back</button>
+            </a>
+
+        </form>
+
+    {% endblock %}
+</div>
+</body>
+</html>

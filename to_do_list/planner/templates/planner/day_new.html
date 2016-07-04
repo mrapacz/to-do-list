@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New day form</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="main-cont">
+    {% block content %}
+        <h2>Plan a new day</h2>
+        <form method="POST" class="post-form">
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="save btn btn-success">Plan this day</button>
+            <a href={% url 'planner:index' %} role="button" class="save btn btn-default">Go back to the main
+                page</a>
+        </form>
+    {% endblock %}
+</div>
+</body>
+</html>
