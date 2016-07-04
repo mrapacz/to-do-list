@@ -2,6 +2,7 @@ To run the app you will need to have python 3.4 interpreter, pip and virtualenv 
 
 If you want to work on virtualenv then run following commands in shell:
 > mkvirtualenv planner
+
 > workon planner
 
 
